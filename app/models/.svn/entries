@@ -1,0 +1,52 @@
+8
+
+dir
+21
+http://svn2.assembla.com/svn/gran/angular/app/models
+http://svn2.assembla.com/svn/gran
+
+
+
+2008-09-26T14:55:19.668621Z
+18
+avbranco
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+38686702-15cf-42e4-a595-3071df8bf5ea
+
+user.rb
+file
+
+
+
+
+2008-09-27T21:32:03.484375Z
+c8745e8cbc05c15878124a94bea5feb0
+2008-09-26T14:55:19.668621Z
+18
+avbranco
+
+photo.rb
+file
+
+
+
+
+2008-09-27T21:32:03.500000Z
+400d584c0579a95dc67b36040308fbad
+2008-09-22T20:02:23.891980Z
+15
+avbranco
+

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/gran/!svn/ver/18/angular/db/migrate
+END
+20080926131218_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/gran/!svn/ver/18/angular/db/migrate/20080926131218_create_users.rb
+END
+20080922182457_create_photos.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gran/!svn/ver/15/angular/db/migrate/20080922182457_create_photos.rb
+END

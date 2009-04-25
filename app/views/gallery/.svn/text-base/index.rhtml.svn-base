@@ -1,0 +1,22 @@
+<script type="text/javascript">
+    function startGallery(){
+        var myGallery = new gallery($('myGallery'), {
+            timed: false
+        });
+    }
+    window.addEvent('domready', startGallery);
+</script>
+<div class="content">
+    <div id="myGallery">
+        <% for photo in @photos %>
+        <div class="imageElement">
+            <h3><%=photo.title %></h3>
+            <p>
+                <%=photo.description %>
+            </p>
+            <a href="#" title="open image" class="open"></a>
+            <img src="<%=photo.url_full%>" class="full" /><img src="<%=photo.url_thumbnail%>" class="thumbnail" />
+        </div>
+		<% end %>
+    </div>
+</div>
