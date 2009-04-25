@@ -93,7 +93,7 @@ class PhotosController < ApplicationController
   private
   def check_logged_in
     authenticate_or_request_with_http_basic("Photos") do |username, password|
-      username == "admin" && password == "admin"
+      username == "admin" && password == "na27av"
     end
   end
 
