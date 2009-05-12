@@ -9,17 +9,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080926131218) do
+ActiveRecord::Schema.define(:version => 20090511234046) do
 
   create_table "photos", :force => true do |t|
-    t.string   "title",         :limit => 50, :null => false
+    t.string   "title",       :limit => 50, :null => false
     t.text     "description"
-    t.string   "url_full",                    :null => false
-    t.string   "url_thumbnail",               :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "photos", ["title"], :name => "index_photos_on_title"
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "photo_id"
+    t.integer  "parent_id"
+    t.integer  "size"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "content_type"
+    t.string   "filename"
+    t.string   "thumbnail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email",           :limit => 100, :null => false
+    t.string   "salted_password", :limit => 40,  :null => false
+    t.string   "salt",            :limit => 40,  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

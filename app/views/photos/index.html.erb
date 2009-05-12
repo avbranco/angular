@@ -6,16 +6,14 @@
   <tr>
     <th>Title</th>
     <th>Description</th>
-    <th>Url full</th>
-    <th>Url thumbnail</th>
+    <th>Picture</th>
   </tr>
 
 <% for photo in @photos %>
   <tr>
     <td><%=h photo.title %></td>
     <td><%=h photo.description %></td>
-    <td><%=h photo.url_full %></td>
-    <td><%=h photo.url_thumbnail %></td>
+    <td><%= picture_for(photo, :small) %> </td>
     <td><%= link_to 'Show', photo %></td>
     <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
     <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>

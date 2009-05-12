@@ -15,7 +15,7 @@
                 <%=photo.description %>
             </p>
             <a href="#" title="open image" class="open"></a>
-            <img src="/images/<%=photo.url_full%>" class="full" /><img src="images/<%=photo.url_thumbnail%>" class="thumbnail" />
+            <img src="<%=photo.picture.public_filename%>" class="full" /><img src="<%=photo.picture.public_filename(:small)%>" class="thumbnail" />
         </div>
 		<% end %>
     </div>

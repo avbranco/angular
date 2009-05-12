@@ -46,9 +46,12 @@ class PhotosController < ApplicationController
   # POST /photos.xml
   def create
     @photo = Photo.new(params[:photo])
-    
+    @picture = Picture.new (:uploaded_data => params[:picture_file])
+
+    @service = PhotoService.new(@photo,@picture)
+
     respond_to do |format|
-      if @photo.save
+      if @service.save
         flash[:notice] = 'Photo was successfully created.'
         format.html { redirect_to(@photo) }
         format.xml  { render :xml => @photo, :status => :created, :location => @photo }
@@ -63,13 +66,17 @@ class PhotosController < ApplicationController
   # PUT /photos/1.xml
   def update
     @photo = Photo.find(params[:id])
+    @picture = @photo.picture
     
+    @service = PhotoService.new(@photo,@picture)
+
     respond_to do |format|
-      if @photo.update_attributes(params[:photo])
+      if @service.update_attributes(params[:photo],params[:picture_file])
         flash[:notice] = 'Photo was successfully updated.'
         format.html { redirect_to(@photo) }
         format.xml  { head :ok }
       else
+        @picture = @service.picture
         format.html { render :action => "edit" }
         format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
       end
@@ -79,21 +86,19 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.xml
   def destroy
-    if current_user
-      @photo = Photo.find(params[:id])
-      @photo.destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
       
-      respond_to do |format|
-        format.html { redirect_to(photos_url) }
-        format.xml  { head :ok }
-      end
+    respond_to do |format|
+      format.html { redirect_to(photos_url) }
+      format.xml  { head :ok }
     end
   end
 
   private
   def check_logged_in
     authenticate_or_request_with_http_basic("Photos") do |username, password|
-      username == "admin" && password == "na27av"
+      username == "admin" && password == "admin"
     end
   end
 
