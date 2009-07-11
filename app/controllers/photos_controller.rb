@@ -111,7 +111,7 @@ class PhotosController < ApplicationController
   def check_logged_in
     if (params[:action] != 'show')
       authenticate_or_request_with_http_basic("Photos") do |username, password|
-        username == "admin" && password == "admin"
+        username == "admin" && password == "123poi098"
       end
     end
   end
