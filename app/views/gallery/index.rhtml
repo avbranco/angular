@@ -1,7 +1,8 @@
 <script type="text/javascript">
     function startGallery(){
         var myGallery = new gallery($('myGallery'), {
-            timed: false
+            timed: false,
+            embedLinks: false
         });
     }
     window.addEvent('domready', startGallery);
@@ -15,8 +16,8 @@
                 <%=photo.description %>
             </p>
             <a href="#" title="open image" class="open"></a>
-            <img src="<%=photo.picture.public_filename%>" class="full" /><img src="<%=photo.picture.public_filename(:small)%>" class="thumbnail" />
+            <img src="/photos/<%=photo.id%>.jpg" class="full" /><img src="/photos/<%=photo.id%>.jpg?thumbnail=true" class="thumbnail" />
         </div>
-		<% end %>
+	<% end %>
     </div>
 </div>

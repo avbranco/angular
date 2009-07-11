@@ -9,9 +9,21 @@
   <%=h @photo.description %>
 </p>
 
+<p>
+  <b>Picture:</b>
+</p>
+<div>
+   <img src="/photos/<%=@photo.id%>.jpg?thumbnail=true" />
+</div>
+
+<br>
+
+<hr>
+
+<br>
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>
-<%= link_to 'Back', photos_path %>
+
 
 </div>

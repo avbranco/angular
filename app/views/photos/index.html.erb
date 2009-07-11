@@ -13,7 +13,6 @@
   <tr>
     <td><%=h photo.title %></td>
     <td><%=h photo.description %></td>
-    <td><%= picture_for(photo, :small) %> </td>
     <td><%= link_to 'Show', photo %></td>
     <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
     <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -11,6 +11,10 @@
 
 ActiveRecord::Schema.define(:version => 20090511234046) do
 
+  create_table "db_files", :force => true do |t|
+    t.binary "data"
+  end
+
   create_table "photos", :force => true do |t|
     t.string   "title",       :limit => 50, :null => false
     t.text     "description"
@@ -26,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20090511234046) do
     t.integer  "size"
     t.integer  "width"
     t.integer  "height"
+    t.integer  "db_file_id"
     t.string   "content_type"
     t.string   "filename"
     t.string   "thumbnail"

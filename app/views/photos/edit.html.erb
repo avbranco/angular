@@ -12,16 +12,15 @@
         <br/>
         <%= f.text_area :description %>
     </p>
+    
     <p>
-        <%= f.label :url_full %>
-        <br/>
-        <%= f.text_field :url_full %>
+      <%= label :photo, :picture %>
+      <%= file_field_tag :picture_file %>
+      <span class="hint">
+	Just accept JPEG, GIF, or PNG files up to 500 KB.
+      </span>
     </p>
-    <p>
-        <%= f.label :url_thumbnail %>
-        <br/>
-        <%= f.text_field :url_thumbnail %>
-    </p>
+
     <p>
         <%= f.submit "Update" %>
     </p>

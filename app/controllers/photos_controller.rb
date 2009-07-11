@@ -19,10 +19,22 @@ class PhotosController < ApplicationController
   # GET /photos/1.xml
   def show
     @photo = Photo.find(params[:id])
+    if thumbnail = params[:thumbnail]
+      picture = @photo.picture.thumbnails.first
+    else
+      picture = @photo.picture
+    end
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @photo }
+      format.xml  { render :xml => @photo.to_xml }
+      format.jpg do
+        data = picture.db_file.data
+        send_data(data, :type => 'image/jpeg',
+                  :filename => picture.filename,
+                  :disposition => 'inline'
+                  )
+      end
     end
   end
   
@@ -97,8 +109,10 @@ class PhotosController < ApplicationController
 
   private
   def check_logged_in
-    authenticate_or_request_with_http_basic("Photos") do |username, password|
-      username == "admin" && password == "admin"
+    if (params[:action] != 'show')
+      authenticate_or_request_with_http_basic("Photos") do |username, password|
+        username == "admin" && password == "admin"
+      end
     end
   end
 
